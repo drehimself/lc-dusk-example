@@ -24,7 +24,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Create Post</button>
+                        <button dusk="create-post" type="submit" class="btn btn-primary">Create Post</button>
                     </form>
                 </div>
             </div>

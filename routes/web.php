@@ -14,8 +14,6 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('post.index');
-Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
@@ -24,6 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/post/{post}', [PostController::class, 'update'])->name('post.update');
     Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.delete');
 });
+
+Route::get('/', [PostController::class, 'index'])->name('post.index');
+Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
 
 Auth::routes();
 
