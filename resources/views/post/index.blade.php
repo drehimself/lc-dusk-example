@@ -29,6 +29,12 @@
                         <div class="mt-4">
                             <a href="{{ route('post.create') }}" class="btn btn-primary">Create Post</a>
                         </div>
+
+                        <div class="mt-4">
+                            <button dusk="modal-button" id="modal-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Create Post Modal
+                            </button>
+                        </div>
                     @endauth
                 </div>
             </div>
