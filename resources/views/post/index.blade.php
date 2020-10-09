@@ -36,6 +36,74 @@
                             </button>
                         </div>
                     @endauth
+
+                    <div class="my-5" x-data="{
+                        dadJoke: null
+                    }">
+                        <button dusk="dad-joke" class="btn btn-secondary" @click="
+                            axios.get('https://icanhazdadjoke.com', {
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            })
+                                .then(response => {
+                                    setTimeout(() => {
+                                        dadJoke = response.data.joke
+                                    }, 1000)
+                                })
+                        ">
+                            Get Dad Joke
+                        </button>
+                        <div class="mt-4">
+                            <p id="dadJokeContainer" x-show="dadJoke" x-text="dadJoke"></p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="my-5" x-data="{
+                        isVisible: false
+                    }">
+
+                        <div dusk="double-click" class="btn btn-primary" @dblclick="isVisible = !isVisible">
+                            Double click me
+                        </div>
+
+                        <div x-show="isVisible" class="mt-4">
+                            Double clicked!
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="my-5" x-data="{
+                        isVisible: false
+                    }">
+
+                        <div dusk="right-click" class="btn btn-primary" @contextmenu.prevent="isVisible = !isVisible">
+                            Right click me
+                        </div>
+
+                        <div x-show="isVisible" class="mt-4">
+                            Right clicked!
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="my-5" x-data="{
+                        isVisible: false
+                    }">
+
+                        <input dusk="multiple-keys" type="text" @keydown="
+                            if (event.metaKey && event.which === 66) {
+                                isVisible = !isVisible
+                            }
+                        ">
+                        <div x-show="isVisible" class="mt-4">
+                            Command + B pressed
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
